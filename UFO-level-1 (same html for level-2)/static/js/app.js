@@ -24,10 +24,26 @@ function buildTable(somedata) {
 // add function to handle click
 function handleClick() {
   var date = d3.select("#datetime").property("value");
+  var city = d3.select("#city").property("value");
+  var state = d3.select("#state").property("value");
+  var country = d3.select("#country").property("value");
+  var shape = d3.select("#shape").property("value");
   let filteredData = tableData;
 
   if (date) {
     filteredData = filteredData.filter( element => element.datetime === date);
+  }
+  if (city) {
+    filteredData = filteredData.filter( element => element.city === city);
+  }
+  if (state) {
+    filteredData = filteredData.filter( element => element.state === state);
+  }
+  if (country) {
+    filteredData = filteredData.filter( element => element.country === country);
+  }
+  if (shape) {
+    filteredData = filteredData.filter( element => element.shape === shape);
   }
 
     buildTable(filteredData);
